@@ -4,7 +4,7 @@ const loading = document.querySelector(".progress");
 // Get news by newsAPI.org
 const getNews = async () => {
   const apiKey = "e048aec5172840b997668269ebd30c4f";
-  const url = `http://newsapi.org/v2/top-headlines?country=th&pageSize=100&apiKey=${apiKey}`;
+  const url = `https://newsapi.org/v2/top-headlines?country=th&pageSize=100&apiKey=${apiKey}`;
 
   const newsResponse = await fetch(url);
   const newsData = await newsResponse.json();
@@ -14,6 +14,7 @@ const getNews = async () => {
 
 const printNews = async () => {
   const news = await getNews();
+  console.log(news);
   addDataToDom(news);
   addDataToDom(news);
   addDataToDom(news);
