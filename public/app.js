@@ -15,7 +15,7 @@ const getNews = async () => {
 // Store last news
 let lastestNews = 0;
 
-const newsArticles = await getNews();
+const newsArticles = getNews();
 // Render data to DOM
 function addDataToDom() {
   if (lastestNews !== newsArticles.length) {
