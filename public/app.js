@@ -12,13 +12,17 @@ const getNews = async () => {
   return newsData.articles;
 };
 
+const printNews = async () => {
+  const news = await getNews();
+  addDataToDom(news);
+  addDataToDom(news);
+  addDataToDom(news);
+};
+
 // Store last news
 let lastestNews = 0;
-
 // Render data to DOM
-async function addDataToDom() {
-  const newsArticles = await getNews();
-
+function addDataToDom(newsArticles) {
   if (lastestNews !== newsArticles.length) {
     const newsElement = document.createElement("div");
     newsElement.classList.add("card");
@@ -57,15 +61,16 @@ const handleScroll = () => {
     // Show the loading animation
     loading.classList.add("show");
     // Add more news data
-    setTimeout(addDataToDom, 1000);
+    setTimeout(printNews, 1000);
   }
 };
 
 // Wait for DOM content to load
 window.addEventListener("DOMContentLoaded", () => {
-  addDataToDom();
-  addDataToDom();
-  addDataToDom();
+  printNews();
+  // addDataToDom();
+  // addDataToDom();
+  // addDataToDom();
 });
 
 // Load more news with scroll eventlistener
