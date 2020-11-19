@@ -15,10 +15,9 @@ const getNews = async () => {
 // Store last news
 let lastestNews = 0;
 
+const newsArticles = await getNews();
 // Render data to DOM
-async function addDataToDom() {
-  const newsArticles = await getNews();
-
+function addDataToDom() {
   if (lastestNews !== newsArticles.length) {
     const newsElement = document.createElement("div");
     newsElement.classList.add("card");
