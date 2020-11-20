@@ -3,13 +3,14 @@ const loading = document.querySelector(".progress");
 
 // Get news by newsAPI.org
 const getNews = async (category = "general") => {
+  const proxyurl = "https://cors-anywhere.herokuapp.com/";
   const apiKey = "e048aec5172840b997668269ebd30c4f";
   const url = `https://newsapi.org/v2/top-headlines?country=th&category=${category}&pageSize=100&apiKey=${apiKey}`;
 
   // Show loading
   loading.classList.add("show");
 
-  fetch(url)
+  fetch(proxyurl + url)
     .then((response) => response.json())
     .then((data) => {
       if (data.status === "ok") {
