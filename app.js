@@ -9,7 +9,7 @@ const getNews = async (category = "general") => {
   // Show loading
   loading.classList.add("show");
 
-  fetch(url)
+  fetch(url, { mode: "no-cors" })
     .then((response) => response.json())
     .then((data) => {
       if (data.status === "ok") {
