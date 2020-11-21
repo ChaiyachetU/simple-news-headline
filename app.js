@@ -2,7 +2,7 @@ const contents = document.querySelector("#contents");
 const loading = document.querySelector(".progress");
 
 // Get news by newsAPI.org
-const getNews = async (category = "general") => {
+const getNews = (category = "general") => {
   const apiKey = "<API_KEY>";
   const url = `http://newsapi.org/v2/top-headlines?country=th&category=${category}&pageSize=100&apiKey=${apiKey}`;
 
